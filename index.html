@@ -1,24 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.0.0/dist/aframe-extras.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-  </head>
-  <body>
-    <a-scene mindar-image="imageTargetSrc: ./targets.mind; filterMinCF:0.001; filterBeta:0.01;" vr-mode-ui="enabled: false">
-      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-      
-      <a-entity mindar-image-target="targetIndex: 0">
-        <a-gltf-model src="./Kandurata Umbrella MWN.glb" 
-                      position="0 0 0" scale="0.2 0.2 0.2" 
-                      animation-mixer="clip: *; loop: repeat"
-                      animation="property: rotation; to: 0 360 0; dur: 10000; easing: linear; loop: true">
-        </a-gltf-model>
-      </a-entity>
-    </a-scene>
-
-    <a href="https://wa.me/+94112334200" id="quote-btn" style="position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); padding: 16px 32px; background: #FFD700; color: #000; border-radius: 30px; font-family: sans-serif; font-weight: bold; text-decoration: none; display: block; z-index: 10;">REQUEST QUOTATION</a>
-  </body>
-</html>
+<a-entity mindar-image-target="targetIndex: 0">
+  <a-gltf-model src="./Kandurata Umbrella MWN.glb" 
+                position="0 0 0" 
+                scale="0.2 0.2 0.2" 
+                rotation="0 0 0"
+                animation="property: rotation; to: 0 360 0; dur: 8000; easing: linear; loop: true">
+  </a-gltf-model>
+</a-entity>
