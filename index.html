@@ -5,35 +5,20 @@
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.0.0/dist/aframe-extras.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-    <style>
-      #quote-btn {
-        position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
-        padding: 16px 32px; background: #FFD700; color: #000;
-        border-radius: 30px; font-family: sans-serif; font-weight: bold;
-        text-decoration: none; display: none; z-index: 10;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-      }
-    </style>
   </head>
   <body>
-    <a-scene mindar-image="imageTargetSrc: ./targets.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-scene mindar-image="imageTargetSrc: ./targets.mind; filterMinCF:0.001; filterBeta:0.01;" vr-mode-ui="enabled: false">
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       
       <a-entity mindar-image-target="targetIndex: 0">
-        <!-- Added clip: * to play all animations and loop: repeat to keep it playing -->
         <a-gltf-model src="./Kandurata Umbrella MWN.glb" 
                       position="0 0 0" scale="0.2 0.2 0.2" 
-                      animation-mixer="clip: *; loop: repeat; timeScale: 1">
+                      animation-mixer="clip: *; loop: repeat"
+                      animation="property: rotation; to: 0 360 0; dur: 10000; easing: linear; loop: true">
         </a-gltf-model>
       </a-entity>
     </a-scene>
 
-    <a href="https://wa.me/+94112334200" id="quote-btn">REQUEST QUOTATION</a>
-
-    <script>
-      setTimeout(() => {
-        document.getElementById('quote-btn').style.display = 'block';
-      }, 2000); // Shortened to 2 seconds to match the reveal
-    </script>
+    <a href="https://wa.me/+94112334200" id="quote-btn" style="position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); padding: 16px 32px; background: #FFD700; color: #000; border-radius: 30px; font-family: sans-serif; font-weight: bold; text-decoration: none; display: block; z-index: 10;">REQUEST QUOTATION</a>
   </body>
 </html>
