@@ -3,7 +3,6 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <!-- Animation script needed for Blender animations -->
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.0.0/dist/aframe-extras.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
     <style>
@@ -17,15 +16,14 @@
     </style>
   </head>
   <body>
-    <!-- FIXED: Using targets.mind as seen in your folder -->
-    <a-scene mindar-image="imageTargetSrc: ./targets.mind;" vr-mode-ui="enabled: false">
+    <a-scene mindar-image="imageTargetSrc: ./targets.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       
       <a-entity mindar-image-target="targetIndex: 0">
-        <!-- FIXED: Using Kandurata Umbrella MWN.glb as seen in your folder -->
+        <!-- Added clip: * to play all animations and loop: repeat to keep it playing -->
         <a-gltf-model src="./Kandurata Umbrella MWN.glb" 
                       position="0 0 0" scale="0.2 0.2 0.2" 
-                      animation-mixer>
+                      animation-mixer="clip: *; loop: repeat; timeScale: 1">
         </a-gltf-model>
       </a-entity>
     </a-scene>
@@ -33,10 +31,9 @@
     <a href="https://wa.me/+94112334200" id="quote-btn">REQUEST QUOTATION</a>
 
     <script>
-      // Show button after 5 seconds
       setTimeout(() => {
         document.getElementById('quote-btn').style.display = 'block';
-      }, 5000);
+      }, 2000); // Shortened to 2 seconds to match the reveal
     </script>
   </body>
 </html>
